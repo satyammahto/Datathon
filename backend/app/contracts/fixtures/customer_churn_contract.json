@@ -1,0 +1,703 @@
+{
+  "version": "1.0.0",
+  "contract_type": "discovery",
+  "dataset_id": "ds-churn-real-001",
+  "dataset_name": "churn_classification.csv",
+  "file_info": {
+    "file_path": "backend/tests/fixtures/data/churn_classification.csv",
+    "file_type": "csv",
+    "file_size_bytes": 3488,
+    "row_count": 100,
+    "column_count": 6,
+    "encoding": "utf-8",
+    "delimiter": ",",
+    "sheet_name": null
+  },
+  "columns": [
+    {
+      "name": "customer_id",
+      "raw_dtype": "str",
+      "inferred_type": "identifier",
+      "subtype": "record_code_id",
+      "confidence": 0.95,
+      "reasons": [
+        "Values follow alphanumeric code identifier pattern (e.g. 'CUST_0001')",
+        "High uniqueness ratio (100.00%)"
+      ],
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "unique_count": 100,
+      "cardinality_ratio": 1.0,
+      "is_identifier": true,
+      "is_potential_target": false,
+      "is_constant": false,
+      "sample_values": [
+        "CUST_0001",
+        "CUST_0002",
+        "CUST_0003",
+        "CUST_0004",
+        "CUST_0005"
+      ],
+      "stats": {
+        "min": null,
+        "max": null,
+        "mean": null,
+        "std": null,
+        "median": null,
+        "q25": null,
+        "q75": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_frequencies": {
+          "CUST_0001": 1,
+          "CUST_0002": 1,
+          "CUST_0003": 1,
+          "CUST_0004": 1,
+          "CUST_0005": 1,
+          "CUST_0006": 1,
+          "CUST_0007": 1,
+          "CUST_0008": 1,
+          "CUST_0009": 1,
+          "CUST_0010": 1
+        },
+        "mode": "CUST_0001"
+      }
+    },
+    {
+      "name": "age",
+      "raw_dtype": "int64",
+      "inferred_type": "numeric_discrete",
+      "subtype": "count_discrete",
+      "confidence": 0.9,
+      "reasons": [
+        "Strict integer values representing discrete counts/frequencies",
+        "Column name 'age' indicates count-like metric"
+      ],
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "unique_count": 39,
+      "cardinality_ratio": 0.39,
+      "is_identifier": false,
+      "is_potential_target": false,
+      "is_constant": false,
+      "sample_values": [
+        33,
+        48,
+        62,
+        61,
+        42
+      ],
+      "stats": {
+        "min": 19.0,
+        "max": 68.0,
+        "mean": 42.65,
+        "std": 14.9053,
+        "median": 41.0,
+        "q25": 30.0,
+        "q75": 53.25,
+        "skewness": 0.0825,
+        "kurtosis": -1.1216,
+        "top_frequencies": null,
+        "mode": 19.0
+      }
+    },
+    {
+      "name": "tenure",
+      "raw_dtype": "int64",
+      "inferred_type": "numeric_discrete",
+      "subtype": "count_discrete",
+      "confidence": 0.9,
+      "reasons": [
+        "Strict integer values representing discrete counts/frequencies",
+        "Column name 'tenure' indicates count-like metric"
+      ],
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "unique_count": 9,
+      "cardinality_ratio": 0.09,
+      "is_identifier": false,
+      "is_potential_target": false,
+      "is_constant": false,
+      "sample_values": [
+        2,
+        8,
+        1,
+        2,
+        9
+      ],
+      "stats": {
+        "min": 1.0,
+        "max": 9.0,
+        "mean": 4.06,
+        "std": 2.5259,
+        "median": 4.0,
+        "q25": 2.0,
+        "q75": 6.0,
+        "skewness": 0.5911,
+        "kurtosis": -0.7613,
+        "top_frequencies": null,
+        "mode": 1.0
+      }
+    },
+    {
+      "name": "monthly_charges",
+      "raw_dtype": "float64",
+      "inferred_type": "numeric_continuous",
+      "subtype": "continuous_measurement",
+      "confidence": 0.95,
+      "reasons": [
+        "Floating-point values with non-zero fractional components",
+        "Continuous distribution spectrum"
+      ],
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "unique_count": 100,
+      "cardinality_ratio": 1.0,
+      "is_identifier": false,
+      "is_potential_target": true,
+      "is_constant": false,
+      "sample_values": [
+        68.82,
+        110.99,
+        24.91,
+        39.08,
+        95.16
+      ],
+      "stats": {
+        "min": 21.33,
+        "max": 119.76,
+        "mean": 71.8548,
+        "std": 29.0452,
+        "median": 71.775,
+        "q25": 47.3775,
+        "q75": 96.17,
+        "skewness": 0.0102,
+        "kurtosis": -1.1589,
+        "top_frequencies": null,
+        "mode": 21.33
+      }
+    },
+    {
+      "name": "contract_type",
+      "raw_dtype": "str",
+      "inferred_type": "categorical_nominal",
+      "subtype": "nominal_category",
+      "confidence": 0.9,
+      "reasons": [
+        "Discrete categorical domain (3 distinct categories, cardinality ratio: 3.00%)"
+      ],
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "unique_count": 3,
+      "cardinality_ratio": 0.03,
+      "is_identifier": false,
+      "is_potential_target": true,
+      "is_constant": false,
+      "sample_values": [
+        "Two year",
+        "Month-to-month",
+        "Two year",
+        "Month-to-month",
+        "One year"
+      ],
+      "stats": {
+        "min": null,
+        "max": null,
+        "mean": null,
+        "std": null,
+        "median": null,
+        "q25": null,
+        "q75": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_frequencies": {
+          "Month-to-month": 37,
+          "Two year": 32,
+          "One year": 31
+        },
+        "mode": "Month-to-month"
+      }
+    },
+    {
+      "name": "churn",
+      "raw_dtype": "int64",
+      "inferred_type": "boolean",
+      "subtype": "boolean_binary",
+      "confidence": 0.9,
+      "reasons": [
+        "Binary values match standard boolean pair {'0', '1'}"
+      ],
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "unique_count": 2,
+      "cardinality_ratio": 0.02,
+      "is_identifier": false,
+      "is_potential_target": true,
+      "is_constant": false,
+      "sample_values": [
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "stats": {
+        "min": null,
+        "max": null,
+        "mean": null,
+        "std": null,
+        "median": null,
+        "q25": null,
+        "q75": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_frequencies": {
+          "0": 76,
+          "1": 24
+        },
+        "mode": "0"
+      }
+    }
+  ],
+  "fingerprint": {
+    "shape": [
+      100,
+      6
+    ],
+    "memory_mb": 0.01,
+    "dataset_summary": "Dataset shape 100 rows x 6 columns; primary key 'customer_id'; primary target 'churn' (binary_classification)",
+    "numeric_columns": [
+      "age",
+      "tenure",
+      "monthly_charges"
+    ],
+    "categorical_columns": [
+      "contract_type",
+      "churn"
+    ],
+    "datetime_columns": [],
+    "identifier_columns": [
+      "customer_id"
+    ],
+    "text_columns": [],
+    "constant_columns": [],
+    "high_cardinality_categoricals": [],
+    "primary_entity_key": "customer_id",
+    "temporal": null,
+    "class_balance": {
+      "target_column": "churn",
+      "proportions": {
+        "0": 0.76,
+        "1": 0.24
+      },
+      "class_counts": {
+        "0": 76,
+        "1": 24
+      },
+      "minority_class": "1",
+      "minority_class_percentage": 24.0,
+      "is_imbalanced": true,
+      "imbalance_ratio": 3.17
+    },
+    "missingness_summary": {
+      "total_missing_cells": 0,
+      "missing_percentage": 0.0,
+      "columns_with_missing": []
+    },
+    "cardinality_summary": {
+      "customer_id": 100,
+      "age": 39,
+      "tenure": 9,
+      "monthly_charges": 100,
+      "contract_type": 3,
+      "churn": 2
+    },
+    "quality_warnings": [],
+    "task_type_candidates": [
+      "clustering",
+      "multiclass_classification",
+      "regression",
+      "binary_classification"
+    ]
+  },
+  "quality_report": {
+    "overall_quality_score": 100.0,
+    "score_breakdown": {
+      "completeness": 100.0,
+      "uniqueness": 100.0,
+      "validity": 100.0,
+      "structural": 100.0,
+      "outliers": 100.0,
+      "overall_score": 100.0
+    },
+    "duplicate_row_count": 0,
+    "duplicate_row_percentage": 0.0,
+    "unique_row_count": 100,
+    "total_missing_cells": 0,
+    "missing_cell_percentage": 0.0,
+    "columns_with_missing": [],
+    "column_missingness": {
+      "customer_id": {
+        "missing_count": 0,
+        "missing_ratio": 0.0,
+        "missing_percentage": 0.0,
+        "non_missing_count": 100,
+        "severity": "none",
+        "whitespace_missing_count": 0
+      },
+      "age": {
+        "missing_count": 0,
+        "missing_ratio": 0.0,
+        "missing_percentage": 0.0,
+        "non_missing_count": 100,
+        "severity": "none",
+        "whitespace_missing_count": 0
+      },
+      "tenure": {
+        "missing_count": 0,
+        "missing_ratio": 0.0,
+        "missing_percentage": 0.0,
+        "non_missing_count": 100,
+        "severity": "none",
+        "whitespace_missing_count": 0
+      },
+      "monthly_charges": {
+        "missing_count": 0,
+        "missing_ratio": 0.0,
+        "missing_percentage": 0.0,
+        "non_missing_count": 100,
+        "severity": "none",
+        "whitespace_missing_count": 0
+      },
+      "contract_type": {
+        "missing_count": 0,
+        "missing_ratio": 0.0,
+        "missing_percentage": 0.0,
+        "non_missing_count": 100,
+        "severity": "none",
+        "whitespace_missing_count": 0
+      },
+      "churn": {
+        "missing_count": 0,
+        "missing_ratio": 0.0,
+        "missing_percentage": 0.0,
+        "non_missing_count": 100,
+        "severity": "none",
+        "whitespace_missing_count": 0
+      }
+    },
+    "columns_with_outliers": [],
+    "total_outliers": 0,
+    "outlier_details": {},
+    "constant_columns": [],
+    "near_constant_columns": [],
+    "high_cardinality_issues": [],
+    "categorical_inconsistencies": [],
+    "type_mismatches": [],
+    "warnings": [],
+    "passed_checks": [
+      "Zero duplicate rows detected.",
+      "Zero missing values across all columns.",
+      "No constant or near-constant uninformative columns detected.",
+      "Zero numerical outliers detected via IQR.",
+      "Zero categorical whitespace/casing inconsistencies or mixed types detected."
+    ]
+  },
+  "leakage_report": {
+    "has_leakage_risk": true,
+    "overall_risk": "high",
+    "leakage_candidates": [
+      {
+        "column": "customer_id",
+        "leakage_type": "id_leakage",
+        "risk_level": "high",
+        "reason": "Column 'customer_id' is an identifier (record_code_id) with 100.0% unique values. Identifiers must be isolated to prevent model memorization and spurious overfitting.",
+        "reasons": [
+          "Semantic type is 'identifier' (record_code_id)",
+          "Cardinality ratio is 1.0000 (100 distinct values)",
+          "Identifiers provide entity tracking but cause spurious memorization if fed to models"
+        ],
+        "confidence": 0.95,
+        "evidence": {
+          "identifier_type": "record_code_id",
+          "uniqueness_ratio": 1.0,
+          "target_association": 1.0
+        },
+        "recommendation": "exclude_from_model",
+        "target_column": "churn",
+        "correlation_with_target": 1.0
+      }
+    ],
+    "findings": [
+      {
+        "column": "customer_id",
+        "leakage_type": "id_leakage",
+        "risk_level": "high",
+        "reason": "Column 'customer_id' is an identifier (record_code_id) with 100.0% unique values. Identifiers must be isolated to prevent model memorization and spurious overfitting.",
+        "reasons": [
+          "Semantic type is 'identifier' (record_code_id)",
+          "Cardinality ratio is 1.0000 (100 distinct values)",
+          "Identifiers provide entity tracking but cause spurious memorization if fed to models"
+        ],
+        "confidence": 0.95,
+        "evidence": {
+          "identifier_type": "record_code_id",
+          "uniqueness_ratio": 1.0,
+          "target_association": 1.0
+        },
+        "recommendation": "exclude_from_model",
+        "target_column": "churn",
+        "correlation_with_target": 1.0
+      }
+    ],
+    "identifiers": [
+      {
+        "column": "customer_id",
+        "identifier_type": "record_code_id",
+        "uniqueness_ratio": 1.0,
+        "target_association": 1.0,
+        "recommended_use": "exclude_from_model",
+        "reason": "Column 'customer_id' is an identifier (record_code_id) with 100.0% unique values. Identifiers must be isolated to prevent model memorization and spurious overfitting."
+      }
+    ],
+    "recommended_drops": [
+      "customer_id"
+    ],
+    "excluded_features": [
+      "customer_id"
+    ],
+    "review_features": [],
+    "sanitized_feature_columns": [
+      "age",
+      "tenure",
+      "monthly_charges",
+      "contract_type"
+    ],
+    "warnings": [
+      "Leakage Risk [HIGH]: Exclude 'customer_id' (id_leakage) - Column 'customer_id' is an identifier (record_code_id) with 100.0% unique values. Identifiers must be isolated to prevent model memorization and spurious overfitting."
+    ]
+  },
+  "router": {
+    "recommended_primary_task": "binary_classification",
+    "secondary_tasks": [
+      "clustering",
+      "unsupervised_eda"
+    ],
+    "applicable_engines": [
+      "statistical_engine",
+      "classification_championship",
+      "error_analysis",
+      "subgroup_analysis",
+      "clustering_engine",
+      "pca_dimensionality_engine"
+    ],
+    "skipped_engines": {
+      "regression_engine": "Primary target is binary_classification (not continuous numeric regression).",
+      "time_series_forecasting": "No datetime/temporal column detected in dataset."
+    },
+    "validation_strategy": "StratifiedKFold",
+    "recommended_metrics": [
+      "roc_auc",
+      "pr_auc",
+      "f1_weighted",
+      "precision",
+      "recall",
+      "log_loss",
+      "balanced_accuracy"
+    ],
+    "rationale": "Binary classification routed for target 'churn' (2 classes). Stratified 5-Fold cross-validation is required.",
+    "task_decisions": {
+      "descriptive_statistics": {
+        "task": "descriptive_statistics",
+        "status": "applicable",
+        "reason": "Dataset contains structured tabular records suitable for descriptive profiling.",
+        "evidence": {
+          "row_count": 100,
+          "column_count": 6
+        },
+        "confidence": 1.0,
+        "target_column": null,
+        "recommended_validation": null,
+        "recommended_metrics": [
+          "mean",
+          "std",
+          "median",
+          "skewness",
+          "kurtosis",
+          "iqr"
+        ]
+      },
+      "correlation_analysis": {
+        "task": "correlation_analysis",
+        "status": "applicable",
+        "reason": "Sufficient usable feature pairs (4 non-identifier features) available for correlation/association analysis.",
+        "evidence": {
+          "usable_feature_count": 4
+        },
+        "confidence": 1.0,
+        "target_column": null,
+        "recommended_validation": null,
+        "recommended_metrics": [
+          "pearson",
+          "spearman",
+          "cramers_v"
+        ]
+      },
+      "binary_classification": {
+        "task": "binary_classification",
+        "status": "applicable",
+        "reason": "Binary categorical target 'churn' detected with 2 discrete classes.",
+        "evidence": {
+          "target_column": "churn",
+          "confidence": 0.99,
+          "minority_class_percentage": 24.0,
+          "is_imbalanced": true
+        },
+        "confidence": 0.99,
+        "target_column": "churn",
+        "recommended_validation": "StratifiedKFold",
+        "recommended_metrics": [
+          "roc_auc",
+          "pr_auc",
+          "f1_weighted",
+          "precision",
+          "recall",
+          "log_loss",
+          "balanced_accuracy"
+        ]
+      },
+      "multiclass_classification": {
+        "task": "multiclass_classification",
+        "status": "skipped",
+        "reason": "Primary target is binary_classification (not multiclass).",
+        "evidence": {
+          "primary_candidate": {
+            "column_name": "churn",
+            "task_type": "binary_classification",
+            "confidence_score": 0.99,
+            "reasons": [
+              "Binary cardinality (2 distinct classes)",
+              "Column name 'churn' strongly matches standard target keywords",
+              "Located at terminal column position"
+            ],
+            "class_count": 2
+          }
+        },
+        "confidence": null,
+        "target_column": null,
+        "recommended_validation": null,
+        "recommended_metrics": []
+      },
+      "regression": {
+        "task": "regression",
+        "status": "skipped",
+        "reason": "Primary target is binary_classification (not continuous numeric regression).",
+        "evidence": {
+          "primary_candidate": {
+            "column_name": "churn",
+            "task_type": "binary_classification",
+            "confidence_score": 0.99,
+            "reasons": [
+              "Binary cardinality (2 distinct classes)",
+              "Column name 'churn' strongly matches standard target keywords",
+              "Located at terminal column position"
+            ],
+            "class_count": 2
+          }
+        },
+        "confidence": null,
+        "target_column": null,
+        "recommended_validation": null,
+        "recommended_metrics": []
+      },
+      "time_series_forecasting": {
+        "task": "time_series_forecasting",
+        "status": "skipped",
+        "reason": "No datetime/temporal column detected in dataset.",
+        "evidence": {
+          "candidate_date_columns": []
+        },
+        "confidence": null,
+        "target_column": null,
+        "recommended_validation": null,
+        "recommended_metrics": []
+      },
+      "clustering": {
+        "task": "clustering",
+        "status": "applicable",
+        "reason": "Dataset contains 4 usable features suitable for unsupervised clustering and latent space analysis.",
+        "evidence": {
+          "usable_feature_count": 4
+        },
+        "confidence": 0.85,
+        "target_column": null,
+        "recommended_validation": "StandardSplit",
+        "recommended_metrics": [
+          "silhouette_score",
+          "davies_bouldin_score",
+          "calinski_harabasz_score"
+        ]
+      }
+    },
+    "usable_feature_columns": [
+      "age",
+      "tenure",
+      "monthly_charges",
+      "contract_type"
+    ],
+    "excluded_identifier_columns": [
+      "customer_id"
+    ],
+    "excluded_leakage_columns": [],
+    "review_feature_columns": [],
+    "unsupported_feature_columns": [],
+    "validation_rationale": "Binary classification on target 'churn'. Stratified 5-Fold validation assigned to preserve class ratios.",
+    "group_column": null
+  },
+  "target_candidates": [
+    {
+      "column_name": "churn",
+      "task_type": "binary_classification",
+      "confidence_score": 0.99,
+      "reasons": [
+        "Binary cardinality (2 distinct classes)",
+        "Column name 'churn' strongly matches standard target keywords",
+        "Located at terminal column position"
+      ],
+      "class_count": 2
+    },
+    {
+      "column_name": "monthly_charges",
+      "task_type": "regression",
+      "confidence_score": 0.85,
+      "reasons": [
+        "Continuous numeric variable with target keyword match 'monthly_charges'"
+      ],
+      "class_count": null
+    },
+    {
+      "column_name": "contract_type",
+      "task_type": "multiclass_classification",
+      "confidence_score": 0.4,
+      "reasons": [
+        "Discrete categorical domain (3 classes)"
+      ],
+      "class_count": 3
+    }
+  ],
+  "cleaning_audit": {
+    "original_shape": [
+      100,
+      6
+    ],
+    "cleaned_shape": [
+      100,
+      6
+    ],
+    "applied_actions": [],
+    "dropped_columns": [],
+    "imputed_columns": []
+  },
+  "created_at": "2026-09-07T08:44:00.489958+00:00",
+  "metadata": {}
+}

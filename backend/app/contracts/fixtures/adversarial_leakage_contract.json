@@ -1,0 +1,683 @@
+{
+  "version": "1.0.0",
+  "contract_type": "discovery",
+  "dataset_id": "ds-adv-real-001",
+  "dataset_name": "adversarial_dataset.csv",
+  "file_info": {
+    "file_path": "backend/tests/fixtures/data/adversarial_dataset.csv",
+    "file_type": "csv",
+    "file_size_bytes": 133,
+    "row_count": 6,
+    "column_count": 4,
+    "encoding": "latin1",
+    "delimiter": ";",
+    "sheet_name": null
+  },
+  "columns": [
+    {
+      "name": "id",
+      "raw_dtype": "int64",
+      "inferred_type": "identifier",
+      "subtype": "id_like",
+      "confidence": 0.95,
+      "reasons": [
+        "Column name contains identifier keyword 'id'",
+        "High unique cardinality ratio (83.33%)"
+      ],
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "unique_count": 5,
+      "cardinality_ratio": 0.8333,
+      "is_identifier": true,
+      "is_potential_target": false,
+      "is_constant": false,
+      "sample_values": [
+        1,
+        2,
+        2,
+        3,
+        4
+      ],
+      "stats": {
+        "min": null,
+        "max": null,
+        "mean": null,
+        "std": null,
+        "median": null,
+        "q25": null,
+        "q75": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_frequencies": {
+          "2": 2,
+          "1": 1,
+          "3": 1,
+          "4": 1,
+          "5": 1
+        },
+        "mode": "2"
+      }
+    },
+    {
+      "name": "name",
+      "raw_dtype": "str",
+      "inferred_type": "categorical_nominal",
+      "subtype": "nominal_category",
+      "confidence": 0.9,
+      "reasons": [
+        "Discrete categorical domain (4 distinct categories, cardinality ratio: 66.67%)"
+      ],
+      "null_count": 1,
+      "null_percentage": 16.67,
+      "unique_count": 4,
+      "cardinality_ratio": 0.6667,
+      "is_identifier": false,
+      "is_potential_target": true,
+      "is_constant": false,
+      "sample_values": [
+        "René",
+        "Alice",
+        "Alice",
+        "Bob",
+        "Zöe"
+      ],
+      "stats": {
+        "min": null,
+        "max": null,
+        "mean": null,
+        "std": null,
+        "median": null,
+        "q25": null,
+        "q75": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_frequencies": {
+          "Alice": 2,
+          "René": 1,
+          "Bob": 1,
+          "Zöe": 1
+        },
+        "mode": "Alice"
+      }
+    },
+    {
+      "name": "score",
+      "raw_dtype": "float64",
+      "inferred_type": "numeric_discrete",
+      "subtype": "count_discrete",
+      "confidence": 0.8,
+      "reasons": [
+        "Strict integer values representing discrete counts/frequencies"
+      ],
+      "null_count": 1,
+      "null_percentage": 16.67,
+      "unique_count": 4,
+      "cardinality_ratio": 0.6667,
+      "is_identifier": false,
+      "is_potential_target": false,
+      "is_constant": false,
+      "sample_values": [
+        95.0,
+        80.0,
+        80.0,
+        70.0,
+        88.0
+      ],
+      "stats": {
+        "min": 70.0,
+        "max": 95.0,
+        "mean": 82.6,
+        "std": 9.4234,
+        "median": 80.0,
+        "q25": 80.0,
+        "q75": 88.0,
+        "skewness": 0.0142,
+        "kurtosis": -0.1075,
+        "top_frequencies": null,
+        "mode": 80.0
+      }
+    },
+    {
+      "name": "status",
+      "raw_dtype": "str",
+      "inferred_type": "boolean",
+      "subtype": "boolean_binary",
+      "confidence": 0.9,
+      "reasons": [
+        "Binary values match standard boolean pair {'active', 'inactive'}"
+      ],
+      "null_count": 0,
+      "null_percentage": 0.0,
+      "unique_count": 2,
+      "cardinality_ratio": 0.3333,
+      "is_identifier": false,
+      "is_potential_target": true,
+      "is_constant": false,
+      "sample_values": [
+        "active",
+        "inactive",
+        "inactive",
+        "active",
+        "active"
+      ],
+      "stats": {
+        "min": null,
+        "max": null,
+        "mean": null,
+        "std": null,
+        "median": null,
+        "q25": null,
+        "q75": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_frequencies": {
+          "active": 3,
+          "inactive": 3
+        },
+        "mode": "active"
+      }
+    }
+  ],
+  "fingerprint": {
+    "shape": [
+      6,
+      4
+    ],
+    "memory_mb": 0.0,
+    "dataset_summary": "Dataset shape 6 rows x 4 columns; primary key 'id'; primary target 'status' (binary_classification)",
+    "numeric_columns": [
+      "score"
+    ],
+    "categorical_columns": [
+      "name",
+      "status"
+    ],
+    "datetime_columns": [],
+    "identifier_columns": [
+      "id"
+    ],
+    "text_columns": [],
+    "constant_columns": [],
+    "high_cardinality_categoricals": [],
+    "primary_entity_key": "id",
+    "temporal": null,
+    "class_balance": {
+      "target_column": "status",
+      "proportions": {
+        "active": 0.5,
+        "inactive": 0.5
+      },
+      "class_counts": {
+        "active": 3,
+        "inactive": 3
+      },
+      "minority_class": "active",
+      "minority_class_percentage": 50.0,
+      "is_imbalanced": false,
+      "imbalance_ratio": 1.0
+    },
+    "missingness_summary": {
+      "total_missing_cells": 2,
+      "missing_percentage": 8.33,
+      "columns_with_missing": [
+        "name",
+        "score"
+      ]
+    },
+    "cardinality_summary": {
+      "id": 5,
+      "name": 4,
+      "score": 4,
+      "status": 2
+    },
+    "quality_warnings": [],
+    "task_type_candidates": [
+      "clustering",
+      "multiclass_classification",
+      "binary_classification"
+    ]
+  },
+  "quality_report": {
+    "overall_quality_score": 67.5,
+    "score_breakdown": {
+      "completeness": 64.3,
+      "uniqueness": 0.0,
+      "validity": 100.0,
+      "structural": 100.0,
+      "outliers": 100.0,
+      "overall_score": 67.5
+    },
+    "duplicate_row_count": 1,
+    "duplicate_row_percentage": 16.67,
+    "unique_row_count": 5,
+    "total_missing_cells": 2,
+    "missing_cell_percentage": 8.33,
+    "columns_with_missing": [
+      "name",
+      "score"
+    ],
+    "column_missingness": {
+      "id": {
+        "missing_count": 0,
+        "missing_ratio": 0.0,
+        "missing_percentage": 0.0,
+        "non_missing_count": 6,
+        "severity": "none",
+        "whitespace_missing_count": 0
+      },
+      "name": {
+        "missing_count": 1,
+        "missing_ratio": 0.1667,
+        "missing_percentage": 16.67,
+        "non_missing_count": 5,
+        "severity": "moderate",
+        "whitespace_missing_count": 0
+      },
+      "score": {
+        "missing_count": 1,
+        "missing_ratio": 0.1667,
+        "missing_percentage": 16.67,
+        "non_missing_count": 5,
+        "severity": "moderate",
+        "whitespace_missing_count": 0
+      },
+      "status": {
+        "missing_count": 0,
+        "missing_ratio": 0.0,
+        "missing_percentage": 0.0,
+        "non_missing_count": 6,
+        "severity": "none",
+        "whitespace_missing_count": 0
+      }
+    },
+    "columns_with_outliers": [],
+    "total_outliers": 0,
+    "outlier_details": {},
+    "constant_columns": [],
+    "near_constant_columns": [],
+    "high_cardinality_issues": [],
+    "categorical_inconsistencies": [],
+    "type_mismatches": [],
+    "warnings": [
+      "Detected 1 (16.67%) exact duplicate rows.",
+      "Primary/declared identifier 'id' contains 1 (16.67%) duplicate entries, violating entity uniqueness.",
+      "Detected 2 missing cells (8.33% of total cells) across 2 columns."
+    ],
+    "passed_checks": [
+      "No constant or near-constant uninformative columns detected.",
+      "Zero numerical outliers detected via IQR.",
+      "Zero categorical whitespace/casing inconsistencies or mixed types detected."
+    ]
+  },
+  "leakage_report": {
+    "has_leakage_risk": true,
+    "overall_risk": "high",
+    "leakage_candidates": [
+      {
+        "column": "id",
+        "leakage_type": "id_leakage",
+        "risk_level": "high",
+        "reason": "Column 'id' is an identifier (id_like) with 83.3% unique values. Identifiers must be isolated to prevent model memorization and spurious overfitting.",
+        "reasons": [
+          "Semantic type is 'identifier' (id_like)",
+          "Cardinality ratio is 0.8333 (5 distinct values)",
+          "Identifiers provide entity tracking but cause spurious memorization if fed to models"
+        ],
+        "confidence": 0.95,
+        "evidence": {
+          "identifier_type": "id_like",
+          "uniqueness_ratio": 0.8333,
+          "target_association": 1.0
+        },
+        "recommendation": "exclude_from_model",
+        "target_column": "status",
+        "correlation_with_target": 1.0
+      },
+      {
+        "column": "name",
+        "leakage_type": "suspicious_correlation",
+        "risk_level": "high",
+        "reason": "Column 'name' exhibits near-perfect association (cramers_v = 1.000) with target 'status'. Likely a proxy or leakage.",
+        "reasons": [
+          "Extremely high cramers_v (1.000) with target",
+          "Near-deterministic relationships in tabular data typically indicate target proxy features"
+        ],
+        "confidence": 0.85,
+        "evidence": {
+          "association_metric": "cramers_v",
+          "association_value": 1.0
+        },
+        "recommendation": "exclude_from_model",
+        "target_column": "status",
+        "correlation_with_target": 1.0
+      }
+    ],
+    "findings": [
+      {
+        "column": "id",
+        "leakage_type": "id_leakage",
+        "risk_level": "high",
+        "reason": "Column 'id' is an identifier (id_like) with 83.3% unique values. Identifiers must be isolated to prevent model memorization and spurious overfitting.",
+        "reasons": [
+          "Semantic type is 'identifier' (id_like)",
+          "Cardinality ratio is 0.8333 (5 distinct values)",
+          "Identifiers provide entity tracking but cause spurious memorization if fed to models"
+        ],
+        "confidence": 0.95,
+        "evidence": {
+          "identifier_type": "id_like",
+          "uniqueness_ratio": 0.8333,
+          "target_association": 1.0
+        },
+        "recommendation": "exclude_from_model",
+        "target_column": "status",
+        "correlation_with_target": 1.0
+      },
+      {
+        "column": "name",
+        "leakage_type": "suspicious_correlation",
+        "risk_level": "high",
+        "reason": "Column 'name' exhibits near-perfect association (cramers_v = 1.000) with target 'status'. Likely a proxy or leakage.",
+        "reasons": [
+          "Extremely high cramers_v (1.000) with target",
+          "Near-deterministic relationships in tabular data typically indicate target proxy features"
+        ],
+        "confidence": 0.85,
+        "evidence": {
+          "association_metric": "cramers_v",
+          "association_value": 1.0
+        },
+        "recommendation": "exclude_from_model",
+        "target_column": "status",
+        "correlation_with_target": 1.0
+      }
+    ],
+    "identifiers": [
+      {
+        "column": "id",
+        "identifier_type": "id_like",
+        "uniqueness_ratio": 0.8333,
+        "target_association": 1.0,
+        "recommended_use": "exclude_from_model",
+        "reason": "Column 'id' is an identifier (id_like) with 83.3% unique values. Identifiers must be isolated to prevent model memorization and spurious overfitting."
+      }
+    ],
+    "recommended_drops": [
+      "id",
+      "name"
+    ],
+    "excluded_features": [
+      "id",
+      "name"
+    ],
+    "review_features": [],
+    "sanitized_feature_columns": [
+      "score"
+    ],
+    "warnings": [
+      "Leakage Risk [HIGH]: Exclude 'id' (id_leakage) - Column 'id' is an identifier (id_like) with 83.3% unique values. Identifiers must be isolated to prevent model memorization and spurious overfitting.",
+      "Leakage Risk [HIGH]: Exclude 'name' (suspicious_correlation) - Column 'name' exhibits near-perfect association (cramers_v = 1.000) with target 'status'. Likely a proxy or leakage."
+    ]
+  },
+  "router": {
+    "recommended_primary_task": "binary_classification",
+    "secondary_tasks": [
+      "clustering",
+      "unsupervised_eda"
+    ],
+    "applicable_engines": [
+      "statistical_engine",
+      "classification_championship",
+      "error_analysis",
+      "subgroup_analysis"
+    ],
+    "skipped_engines": {
+      "regression_engine": "Primary target is binary_classification (not continuous numeric regression).",
+      "time_series_forecasting": "No datetime/temporal column detected in dataset."
+    },
+    "validation_strategy": "StratifiedKFold",
+    "recommended_metrics": [
+      "roc_auc",
+      "pr_auc",
+      "f1_weighted",
+      "precision",
+      "recall",
+      "log_loss",
+      "balanced_accuracy"
+    ],
+    "rationale": "Binary classification routed for target 'status' (2 classes). Stratified 5-Fold cross-validation is required.",
+    "task_decisions": {
+      "descriptive_statistics": {
+        "task": "descriptive_statistics",
+        "status": "applicable",
+        "reason": "Dataset contains structured tabular records suitable for descriptive profiling.",
+        "evidence": {
+          "row_count": 6,
+          "column_count": 4
+        },
+        "confidence": 1.0,
+        "target_column": null,
+        "recommended_validation": null,
+        "recommended_metrics": [
+          "mean",
+          "std",
+          "median",
+          "skewness",
+          "kurtosis",
+          "iqr"
+        ]
+      },
+      "correlation_analysis": {
+        "task": "correlation_analysis",
+        "status": "insufficient_evidence",
+        "reason": "Fewer than 2 usable features available (1 usable features).",
+        "evidence": {
+          "usable_feature_count": 1
+        },
+        "confidence": 0.0,
+        "target_column": null,
+        "recommended_validation": null,
+        "recommended_metrics": []
+      },
+      "binary_classification": {
+        "task": "binary_classification",
+        "status": "applicable",
+        "reason": "Binary categorical target 'status' detected with 2 discrete classes.",
+        "evidence": {
+          "target_column": "status",
+          "confidence": 0.99,
+          "minority_class_percentage": 50.0,
+          "is_imbalanced": false
+        },
+        "confidence": 0.99,
+        "target_column": "status",
+        "recommended_validation": "StratifiedKFold",
+        "recommended_metrics": [
+          "roc_auc",
+          "pr_auc",
+          "f1_weighted",
+          "precision",
+          "recall",
+          "log_loss",
+          "balanced_accuracy"
+        ]
+      },
+      "multiclass_classification": {
+        "task": "multiclass_classification",
+        "status": "skipped",
+        "reason": "Primary target is binary_classification (not multiclass).",
+        "evidence": {
+          "primary_candidate": {
+            "column_name": "status",
+            "task_type": "binary_classification",
+            "confidence_score": 0.99,
+            "reasons": [
+              "Binary cardinality (2 distinct classes)",
+              "Column name 'status' strongly matches standard target keywords",
+              "Located at terminal column position"
+            ],
+            "class_count": 2
+          }
+        },
+        "confidence": null,
+        "target_column": null,
+        "recommended_validation": null,
+        "recommended_metrics": []
+      },
+      "regression": {
+        "task": "regression",
+        "status": "skipped",
+        "reason": "Primary target is binary_classification (not continuous numeric regression).",
+        "evidence": {
+          "primary_candidate": {
+            "column_name": "status",
+            "task_type": "binary_classification",
+            "confidence_score": 0.99,
+            "reasons": [
+              "Binary cardinality (2 distinct classes)",
+              "Column name 'status' strongly matches standard target keywords",
+              "Located at terminal column position"
+            ],
+            "class_count": 2
+          }
+        },
+        "confidence": null,
+        "target_column": null,
+        "recommended_validation": null,
+        "recommended_metrics": []
+      },
+      "time_series_forecasting": {
+        "task": "time_series_forecasting",
+        "status": "skipped",
+        "reason": "No datetime/temporal column detected in dataset.",
+        "evidence": {
+          "candidate_date_columns": []
+        },
+        "confidence": null,
+        "target_column": null,
+        "recommended_validation": null,
+        "recommended_metrics": []
+      },
+      "clustering": {
+        "task": "clustering",
+        "status": "insufficient_evidence",
+        "reason": "Insufficient usable features (1 usable features found; minimum 2 required, excluding identifiers/constants/leakage).",
+        "evidence": {
+          "usable_feature_count": 1
+        },
+        "confidence": null,
+        "target_column": null,
+        "recommended_validation": null,
+        "recommended_metrics": []
+      }
+    },
+    "usable_feature_columns": [
+      "score"
+    ],
+    "excluded_identifier_columns": [
+      "id"
+    ],
+    "excluded_leakage_columns": [
+      "name"
+    ],
+    "review_feature_columns": [],
+    "unsupported_feature_columns": [],
+    "validation_rationale": "Binary classification on target 'status'. Stratified 5-Fold validation assigned to preserve class ratios.",
+    "group_column": null
+  },
+  "target_candidates": [
+    {
+      "column_name": "status",
+      "task_type": "binary_classification",
+      "confidence_score": 0.99,
+      "reasons": [
+        "Binary cardinality (2 distinct classes)",
+        "Column name 'status' strongly matches standard target keywords",
+        "Located at terminal column position"
+      ],
+      "class_count": 2
+    },
+    {
+      "column_name": "name",
+      "task_type": "multiclass_classification",
+      "confidence_score": 0.4,
+      "reasons": [
+        "Discrete categorical domain (4 classes)"
+      ],
+      "class_count": 4
+    }
+  ],
+  "cleaning_audit": {
+    "original_shape": [
+      6,
+      4
+    ],
+    "cleaned_shape": [
+      5,
+      4
+    ],
+    "applied_actions": [
+      {
+        "action_type": "drop_duplicates",
+        "action": "drop_duplicates",
+        "column": null,
+        "affected_rows": 1,
+        "description": "Removed 1 exact duplicate rows from dataset.",
+        "reason": "exact_duplicate_rows",
+        "method": "drop_duplicates",
+        "before_summary": {
+          "total_rows": 6,
+          "duplicate_rows": 1
+        },
+        "after_summary": {
+          "total_rows": 5,
+          "duplicate_rows": 0
+        },
+        "timestamp": "2026-09-07T08:44:00.509740+00:00"
+      },
+      {
+        "action_type": "impute_missing",
+        "action": "impute_missing",
+        "column": "name",
+        "affected_rows": 1,
+        "description": "Imputed 1 missing values in categorical column 'name' using mode ('Alice').",
+        "reason": "categorical_missing_values",
+        "method": "mode",
+        "before_summary": {
+          "missing_count": 1,
+          "missing_percentage": 20.0
+        },
+        "after_summary": {
+          "missing_count": 0,
+          "imputed_value": "Alice"
+        },
+        "timestamp": "2026-09-07T08:44:00.510245+00:00"
+      },
+      {
+        "action_type": "impute_missing",
+        "action": "impute_missing",
+        "column": "score",
+        "affected_rows": 1,
+        "description": "Imputed 1 missing values in numeric column 'score' using median (84).",
+        "reason": "numeric_missing_values",
+        "method": "median",
+        "before_summary": {
+          "missing_count": 1,
+          "missing_percentage": 20.0
+        },
+        "after_summary": {
+          "missing_count": 0,
+          "imputed_value": 84
+        },
+        "timestamp": "2026-09-07T08:44:00.510567+00:00"
+      }
+    ],
+    "dropped_columns": [],
+    "imputed_columns": [
+      "name",
+      "score"
+    ]
+  },
+  "created_at": "2026-09-07T08:44:00.520637+00:00",
+  "metadata": {}
+}

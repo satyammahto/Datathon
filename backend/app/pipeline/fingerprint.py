@@ -606,13 +606,13 @@ def infer_column_semantics(series: pd.Series, col_name: str, total_rows: int) ->
     if res:
         return res
 
-    # 6. Check Identifiers / Entity Keys
-    res = _check_identifier(series, non_null, col_name, total_rows)
+    # 6. Check Date / Datetime
+    res = _check_datetime(series, non_null, col_name)
     if res:
         return res
 
-    # 7. Check Date / Datetime
-    res = _check_datetime(series, non_null, col_name)
+    # 7. Check Identifiers / Entity Keys
+    res = _check_identifier(series, non_null, col_name, total_rows)
     if res:
         return res
 

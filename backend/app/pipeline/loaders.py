@@ -125,8 +125,8 @@ def load_dataset(file_path: str, sheet_name: Optional[str] = None) -> Tuple[pd.D
             except Exception as e:
                 raise ValueError(f"Failed to parse JSON file: {str(e)}")
 
-    if df is None or df.empty and df.shape == (0, 0):
-        raise ValueError("Parsed dataframe is empty or invalid.")
+    if df is None or df.empty or df.shape[0] == 0:
+        raise ValueError(f"Dataset in '{file_path}' contains zero data rows (header only or empty).")
 
     # Clean whitespace from column names
     df.columns = [str(c).strip() for c in df.columns]
