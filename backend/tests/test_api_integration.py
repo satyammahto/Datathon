@@ -26,13 +26,12 @@ def override_get_db():
     finally:
         db.close()
 
-app.dependency_overrides[get_db] = override_get_db
-
 client = TestClient(app)
 
 @pytest.fixture(scope="module")
 def setup_database():
     # Setup
+    app.dependency_overrides[get_db] = override_get_db
     Base.metadata.create_all(bind=engine)
     db = TestingSessionLocal()
     
@@ -49,6 +48,7 @@ def setup_database():
     yield db
     
     # Teardown
+    app.dependency_overrides.clear()
     Base.metadata.drop_all(bind=engine)
     
     # Remove test db file
