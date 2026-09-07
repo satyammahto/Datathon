@@ -11,6 +11,15 @@ Base.metadata.create_all(bind=engine)
 
 from api.routes import router as api_router
 from api.pipeline_routes import router as pipeline_router
+try:
+    from backend.app.api.routes import router as unified_aida_router
+except ImportError:
+    from app.api.routes import router as unified_aida_router
+
+try:
+    from aida.api import router as aida_trust_router
+except ImportError:
+    from backend.aida.api import router as aida_trust_router
 
 app = FastAPI(
     title="DataMind AI API",
@@ -29,6 +38,9 @@ app.add_middleware(
 
 app.include_router(api_router, prefix="/api")
 app.include_router(pipeline_router, prefix="/api")
+app.include_router(unified_aida_router)
+app.include_router(aida_trust_router, prefix="/api")
+app.include_router(aida_trust_router)
 
 @app.get("/")
 def read_root():

@@ -6,16 +6,25 @@ to Person 4 (Frontend / UI Dashboard).
 
 from __future__ import annotations
 from typing import Any, Dict, List, Optional
-from fastapi import FastAPI, HTTPException, status
+from fastapi import FastAPI, APIRouter, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
-from backend.aida.contracts.discovery_contract import DiscoveryContract
-from backend.aida.contracts.analysis_contract import AnalysisContract
-from backend.aida.contracts.insight_contract import InsightContract, VerifiedInsight, RejectedInsight
-from backend.aida.pipeline.summary import generate_deterministic_summary
-from backend.aida.graph import run_aida_pipeline
+try:
+    from backend.aida.contracts.discovery_contract import DiscoveryContract
+    from backend.aida.contracts.analysis_contract import AnalysisContract
+    from backend.aida.contracts.insight_contract import InsightContract, VerifiedInsight, RejectedInsight
+    from backend.aida.pipeline.summary import generate_deterministic_summary
+    from backend.aida.graph import run_aida_pipeline
+except ImportError:
+    from aida.contracts.discovery_contract import DiscoveryContract
+    from aida.contracts.analysis_contract import AnalysisContract
+    from aida.contracts.insight_contract import InsightContract, VerifiedInsight, RejectedInsight
+    from aida.pipeline.summary import generate_deterministic_summary
+    from aida.graph import run_aida_pipeline
 
+
+router = APIRouter(tags=["AIDA Trust Layer"])
 
 app = FastAPI(
     title="AIDA Trust Layer API",
@@ -53,12 +62,15 @@ class InsightsResponse(BaseModel):
     pipeline_errors: List[str] = Field(default_factory=list)
 
 
+@router.get("/health", tags=["Health"])
 @app.get("/health", tags=["Health"])
 def health_check() -> Dict[str, str]:
     """Connectivity verification endpoint for Person 4."""
     return {"status": "Trust Layer Online"}
 
 
+@router.post("/v1/insights", response_model=InsightsResponse, tags=["Insights"])
+@router.post("/insights", response_model=InsightsResponse, tags=["Insights"])
 @app.post("/api/v1/insights", response_model=InsightsResponse, tags=["Insights"])
 def generate_insights(request: AnalysisRequest) -> InsightsResponse:
     """Ingest Discovery and Analysis contracts, execute autonomous LangGraph investigation,

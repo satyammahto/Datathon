@@ -147,6 +147,7 @@ def demo_login(db: Session = Depends(get_db)):
 @router.post("/upload", response_model=DatasetResponse)
 async def upload_dataset(
     file: UploadFile = File(...),
+    background_tasks: BackgroundTasks = BackgroundTasks(),
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user)
 ):
@@ -181,6 +182,13 @@ async def upload_dataset(
         db.add(dataset)
         db.commit()
         db.refresh(dataset)
+
+        try:
+            from api.pipeline_routes import execute_live_pipeline
+            background_tasks.add_task(execute_live_pipeline, file_id, file_path, file.filename)
+        except Exception:
+            pass
+
         return dataset
     except Exception as e:
         os.remove(file_path)

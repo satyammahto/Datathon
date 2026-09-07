@@ -29,6 +29,9 @@ export function Layout() {
   const displayName = user?.username || 'Satyam Mahto';
   const initial = displayName.charAt(0).toUpperCase();
 
+  const dashboardContract = useStore(state => state.dashboardContract);
+  const activeDatasetName = dashboardContract?.dataset_name || "Customer_Sales_Data";
+
   // Dynamic breadcrumb matching the screenshot
   const getBreadcrumb = () => {
     const path = location.pathname;
@@ -42,7 +45,7 @@ export function Layout() {
             Reports
           </span>
           <span className="text-slate-600">&gt;</span>
-          <span className="text-slate-200 font-semibold">Customer_Sales_Data</span>
+          <span className="text-slate-200 font-semibold">{activeDatasetName}</span>
         </div>
       );
     }

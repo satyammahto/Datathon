@@ -1,0 +1,96 @@
+{
+    "schema_version": "1.0",
+    "status": "SUCCESS",
+    "reason": null,
+    "task": "classification",
+    "target_column": "churn",
+    "validation": {
+        "status": "SUCCESS",
+        "reason": null,
+        "strategy": "StratifiedKFold",
+        "folds": 5,
+        "primary_metric": "f1",
+        "random_seed": 42,
+        "split_details": {
+            "shuffle": true
+        }
+    },
+    "statistical_analysis": {
+        "status": "SUCCESS",
+        "reason": null,
+        "summary_stats": {},
+        "correlations": {},
+        "distribution_checks": {}
+    },
+    "models": [
+        {
+            "model_name": "LogisticRegression",
+            "family": "linear",
+            "status": "SUCCESS",
+            "reason": null,
+            "metrics": {
+                "f1": 0.782,
+                "accuracy": 0.814,
+                "roc_auc": 0.852
+            },
+            "train_time_seconds": 0.045,
+            "parameters": {
+                "C": 1.0,
+                "max_iter": 1000
+            }
+        },
+        {
+            "model_name": "RandomForestClassifier",
+            "family": "tree_ensemble",
+            "status": "SUCCESS",
+            "reason": null,
+            "metrics": {
+                "f1": 0.841,
+                "accuracy": 0.865,
+                "roc_auc": 0.912
+            },
+            "train_time_seconds": 0.312,
+            "parameters": {
+                "n_estimators": 100,
+                "random_state": 42
+            }
+        }
+    ],
+    "winner": {
+        "status": "SUCCESS",
+        "reason": null,
+        "model_name": "RandomForestClassifier",
+        "primary_metric": "f1",
+        "score": 0.841,
+        "empirical_evidence": {
+            "metric": "f1",
+            "score": 0.841,
+            "competitors_evaluated": 2
+        },
+        "selection_rationale": "Model RandomForestClassifier achieved superior f1 (0.8410)"
+    },
+    "error_analysis": {
+        "status": "SUCCESS",
+        "reason": null,
+        "residual_summary": {},
+        "worst_predictions": [],
+        "high_loss_segments": []
+    },
+    "experiments": [],
+    "ensemble": {
+        "status": "SUCCESS",
+        "reason": null,
+        "ensemble_type": null,
+        "member_models": [],
+        "ensemble_score": null,
+        "improvement_over_champion": null
+    },
+    "time_analysis": {
+        "status": "NOT_APPLICABLE",
+        "reason": "Discovery router indicated dataset has no active time analysis component",
+        "seasonality_detected": null,
+        "stationarity_test_passed": null,
+        "trend_type": null,
+        "autocorrelation_summary": {}
+    }
+}
