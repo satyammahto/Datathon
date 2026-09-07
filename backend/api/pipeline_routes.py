@@ -297,9 +297,18 @@ def execute_live_pipeline(dataset_id: str, file_path: str, dataset_name: str) ->
         "logs": logs
     }
 
+    analysis_dict = p2_analysis.model_dump()
+    analysis_dict["models"] = models_data
+    analysis_dict["task_type"] = primary_task
+    analysis_dict["validation_strategy"] = {
+        "method": getattr(p2_analysis.validation, "strategy", "5-Fold Stratified CV") or "5-Fold Stratified CV",
+        "folds": getattr(p2_analysis.validation, "folds", 5) or 5,
+        "primary_metric": getattr(p2_analysis.validation, "primary_metric", "score") or "score"
+    }
+
     results = {
         "discovery": p1_discovery.model_dump(),
-        "analysis": p2_analysis.model_dump(),
+        "analysis": analysis_dict,
         "insights": dashboard_insights,
         "dashboard": dashboard_contract
     }
